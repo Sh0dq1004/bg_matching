@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView
+from .models import BoardGame
+from django.http import HttpResponse
+from . import bd_maker
+
 
 # Create your views here.
 class template_sample(TemplateView):
@@ -15,3 +19,19 @@ class form_sample(TemplateView):
         context = super().get_context_data(**kwargs)
         context["var"] = "create_sample"
         return context
+
+
+class model_sample(TemplateView):
+    template_name="model_sample.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["var"] = "create_sample"
+        context["data"] = BoardGame.objects.all()
+        return context
+    
+    def post(self, request, *args, **kwargs):
+        if 'datamaker' in request.POST:
+            print("Data Maker button pressed!")
+            # 実際の処理をここに書く
+            bd_maker.main()
+        return super().get(request, *args, **kwargs)

@@ -21,5 +21,6 @@ from matching_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("template_sample/", views.template_sample.as_view(), name="template_sample"),
-    path("form_sample/", views.form_sample.as_view(), name="form_sample")
+    path("form_sample/", views.form_sample.as_view(), name="form_sample"),
+    path("model_sample/", views.model_sample.as_view(), name="model_sample")
 ]

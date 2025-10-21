@@ -1,0 +1,20 @@
+{% load static %} 
+<head>
+    <title>{{var}}</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+    <p class="create_sample">Hello World</p>
+    <p>This is {{var}} page</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="datamaker">Data Make</button>
+    </form>
+
+    <p>
+        {%for i in data%}
+        {{ i.title }}<br>
+        {% endfor %}
+    </p>    
+</body>
