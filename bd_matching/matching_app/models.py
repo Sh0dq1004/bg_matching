@@ -13,7 +13,7 @@ class BoardGame(models.Model):
     max_p = models.IntegerField(default=0)
     min_p = models.IntegerField(default=0)
 
-class User(models.Model):
+class Person(models.Model):
     name = models.CharField(max_length=128)
     table_num = models.IntegerField(default=0)
     favorite = models.IntegerField(default=8) # 8 == なんでも

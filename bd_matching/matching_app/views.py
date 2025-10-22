@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView
-from .models import BoardGame
+from .models import BoardGame, Person
 from django.http import HttpResponse
 from . import bd_maker
 
@@ -13,8 +13,12 @@ class template_sample(TemplateView):
         context["var"] = "template_sample"
         return context
 
-class form_sample(TemplateView):
+class form_sample(CreateView):
     template_name = "create_sample.html"
+    model = Person
+    fields = ("name", "table_num", "favorite")
+    success_url = "/model_sample/"
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["var"] = "create_sample"

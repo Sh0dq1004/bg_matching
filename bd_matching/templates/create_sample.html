@@ -6,4 +6,11 @@
 <body>
     <p class="create_sample">Hello World</p>
     <p>This is {{var}} page</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    
 </body>
