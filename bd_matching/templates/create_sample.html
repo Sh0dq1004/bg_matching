@@ -1,16 +1,39 @@
 {% load static %} 
 <head>
-    <title>{{var}}</title>
+    <title>user login</title>
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+<style type="text/css">
+h1 {
+  text-align: center;
+  background-color: white;
+  border: 5px double red;
+  font-family: "HG創英角ﾎﾟｯﾌﾟ体";
+}
+
+button {
+  border-color: red;
+  border-width: 5px;
+  font-family: "HG創英角ｺﾞｼｯｸUB";
+}
+
+p {
+  font-family: "HG創英角ｺﾞｼｯｸUB";
+}
+
+</style>
 </head>
-<body>
-    <p class="create_sample">Hello World</p>
-    <p>This is {{var}} page</p>
+<body style=" background-color: #99ff99;">{% load static %} 
+
+    <title>{{var}}</title>
+    <link href="%7B%%20static%20%27css/style.css%27%20%%7D" rel="stylesheet">
+
+
+    <h1>ボードゲームマッチング</h1>
+<p>ここで名前（ニックネーム可）を入力して次に進んでください。</p>
 
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
+        <p>ここにお名前を入力</p>{{ form.name}}
+        <button type="submit">進む</button>
     </form>
-    
-</body>
+</body></html>

@@ -1,6 +1,16 @@
-p{
-    color:red;
+h1 {
+  text-align: center;
+  background-color: white;
+  border: 5px double red;
+  font-family: "HG創英角ﾎﾟｯﾌﾟ体";
 }
-.form_sample{
-    color:green;
+
+button {
+  border-color: red;
+  border-width: 5px;
+  font-family: "HG創英角ｺﾞｼｯｸUB";
+}
+
+p {
+  font-family: "HG創英角ｺﾞｼｯｸUB";
 }
