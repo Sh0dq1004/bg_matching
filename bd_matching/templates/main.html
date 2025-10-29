@@ -1,0 +1,31 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>ボードゲームマッチング</title>
+<style type="text/css">
+h1 {
+  background-color: white;
+  border: 10px double red;
+  text-align: center;
+  font-family: "HGS創英角ﾎﾟｯﾌﾟ体";
+}
+
+p {
+  font-family: "BIZ UDPゴシック";
+}
+
+</style></head>
+<body style="background-color: #99ff99;"><h1>ボードゲームサークルマッチング</h1>
+<hr>
+<p>希望を元に卓の振り分けを行います</p>
+<p>利用者の方はこちらに名前（ニックネーム可）を入力してください</p>
+<form method="post">
+        {% csrf_token %}
+        <p>ここにお名前を入力</p>{{ form.name}}
+        <button type="submit">進む</button>
+</form>
+<p><br></p>
+<p><br></p>
+<p>管理者の方は<a href="http://172.17.153.187:8080/admin/">こちら</a></p></body></html>

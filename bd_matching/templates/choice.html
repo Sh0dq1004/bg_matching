@@ -1,0 +1,39 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>ボードゲームマッチング</title>
+<style type="text/css">
+h1 {
+  font-family: "HG創英角ﾎﾟｯﾌﾟ体";
+}
+
+#gowait {
+  font-size: large;
+  width: 200px;
+  height: 50px;
+  background-color: #3366ff;
+  color: white;
+  font-family: "HGS創英角ｺﾞｼｯｸUB";
+  text-align: center;
+}
+
+</style></head>
+<body style="background-color: #99ff99; margin-left: 5%;">
+  <h1>ボードゲームを選択してください</h1>
+<hr>
+<h3>ざっくり選択する</h3>
+<form method="post">
+        {% csrf_token %}
+        {{ form.favorite}}
+        <button type="submit">進む</button>
+</form>
+<h4>詳細に選択する(ご希望に沿えない場合があります)</h4>
+<p><a href="http://172.17.153.187:8080/choice/detail">こちら</a>をクリックしてボードゲームリストへ</p>
+<hr>
+<h3>選択内容</h3>
+<p>お名前：(name)</p>
+<p>ボードゲーム:(board game)</p>
+<p><br></p><input name="for wait" value="この内容で進む" formmethod="get" id="gowait" type="submit">
+</body></html>

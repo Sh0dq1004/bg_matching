@@ -16,4 +16,5 @@ class BoardGame(models.Model):
 class Person(models.Model):
     name = models.CharField(max_length=128)
     table_num = models.IntegerField(default=0)
-    favorite = models.IntegerField(default=8) # 8 == なんでも
+    favorite = models.IntegerField(default=0) #0:なんでも 1:重ボドゲ 2:軽ボドゲ 4:specific
+    bg_id = models.IntegerField()

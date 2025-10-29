@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView
-from .models import BoardGame, Person
+from .models import BoardGame
+from .form import User
 from django.http import HttpResponse
 from . import bd_maker
 
@@ -15,7 +16,7 @@ class template_sample(TemplateView):
 
 class form_sample(CreateView):
     template_name = "create_sample.html"
-    model = Person
+    model = User
     fields = ("name", "table_num", "favorite")
     success_url = "/model_sample/"
 
@@ -33,6 +34,32 @@ class model_sample(TemplateView):
         context["data"] = BoardGame.objects.all()
         return context
     
+    def post(self, request, *args, **kwargs):
+        if 'datamaker' in request.POST:
+            print("Data Maker button pressed!")
+            # 実際の処理をここに書く
+            bd_maker.main()
+        return super().get(request, *args, **kwargs)
+
+class main(CreateView):
+    template_name = "main.html"
+    model = User
+    fields = ("name", "table_num", "favorite")
+    success_url = "/main/"
+
+    def post(self, request, *args, **kwargs):
+        if 'datamaker' in request.POST:
+            print("Data Maker button pressed!")
+            # 実際の処理をここに書く
+            bd_maker.main()
+        return super().get(request, *args, **kwargs)
+
+class choice(CreateView):
+    template_name = "choice.html"
+    model = User
+    fields = ("name", "table_num", "favorite")
+    success_url = "/choice/"
+
     def post(self, request, *args, **kwargs):
         if 'datamaker' in request.POST:
             print("Data Maker button pressed!")
