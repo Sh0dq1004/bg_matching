@@ -1,0 +1,35 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title></title>
+<style type="text/css">
+h1 {
+  text-align: center;
+  color: black;
+}
+
+p {
+  color: black;
+  font-weight: bold;
+}
+
+form {
+  background-color: white;
+  color: black;
+}
+
+</style></head>
+<body style=" color: white; background-color: #cccccc;">
+  <h1>管理者向けログイン</h1>
+<p>ここにパスワードを入力してください</p>
+<form method="post">
+        {% csrf_token %}
+        {{ form.pass}}
+        <button type="submit">進む</button>
+</form>
+<hr><span style="color: black;"></span>
+<p><br></p>
+<p>一般の利用者の方は<a href="http://172.17.153.187:8080/main/">こちら</a></p>
+</body></html>
