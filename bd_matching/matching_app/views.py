@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView
-from .models import BoardGame
+from .models import Person
 from .form import User
 from django.http import HttpResponse
 from . import bd_maker
@@ -43,9 +43,9 @@ class model_sample(TemplateView):
 
 class main(CreateView):
     template_name = "main.html"
-    model = User
+    model = Person
     fields = ("name", "table_num", "favorite")
-    success_url = "/main/"
+    success_url = "/choice/"
 
     def post(self, request, *args, **kwargs):
         if 'datamaker' in request.POST:
@@ -66,3 +66,15 @@ class choice(CreateView):
             # 実際の処理をここに書く
             bd_maker.main()
         return super().get(request, *args, **kwargs)
+
+class wait(CreateView):
+    template_name = "wait.html"
+    model = User
+    fields = ("name", "table_num", "favorite")
+    success_url = "/wait/"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["var"] = "/wait/"
+        return context
+

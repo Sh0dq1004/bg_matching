@@ -18,3 +18,4 @@ class Person(models.Model):
     table_num = models.IntegerField(default=0)
     favorite = models.IntegerField(default=0) #0:なんでも 1:重ボドゲ 2:軽ボドゲ 4:specific
     bg_id = models.IntegerField()
+
