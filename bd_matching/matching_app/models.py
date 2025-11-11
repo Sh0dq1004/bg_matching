@@ -4,7 +4,6 @@ from django.db import models
 
 class BoardGame(models.Model):
     title = models.CharField(max_length=64)
-    weight = models.IntegerField(default=0)
     strategy = models.IntegerField(default=0)
     party = models.IntegerField(default=0)
     secret = models.IntegerField(default=0)
@@ -16,4 +15,5 @@ class BoardGame(models.Model):
 class Person(models.Model):
     name = models.CharField(max_length=128)
     table_num = models.IntegerField(default=0)
-    favorite = models.IntegerField(default=8) # 8 == なんでも
+    favorite = models.IntegerField(default=0) #0:なんでもいい 1:重ボドゲ 2:軽ボドゲ 3:指定あり
+    bg_id = models.IntegerField(default=0)

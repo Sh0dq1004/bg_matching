@@ -14,14 +14,13 @@ def store_data(path):
                 first_row=False
                 continue
             bg = models.BoardGame(title = row[0])
-            bg.weight = int(row[1])
-            bg.strategy = int(row[2])
-            bg.party = int(row[3])
-            bg.secret = int(row[4])
-            bg.token = int(row[5])
-            bg.adventure = int(row[6])
-            bg.max_p = int(row[7])
-            bg.min_p = int(row[8])
+            bg.strategy = int(row[1])
+            bg.party = int(row[2])
+            bg.secret = int(row[3])
+            bg.token = int(row[4])
+            bg.adventure = int(row[5])
+            bg.max_p = int(row[6])
+            bg.min_p = int(row[7])
             bg.save()
 
 def check_data():
@@ -42,4 +41,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-            
